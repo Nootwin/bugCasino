@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbvggr80pm6lg"
-path="res://.godot/imported/fireant.png-b65218fc5cdc7393d3adf080196df1f8.ctex"
+path="res://.godot/imported/fireant.png-d51f42664417c27def87ce4f6e8e2051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Onebuttonbug/art/fireant.png"
-dest_files=["res://.godot/imported/fireant.png-b65218fc5cdc7393d3adf080196df1f8.ctex"]
+source_file="res://art/fireant.png"
+dest_files=["res://.godot/imported/fireant.png-d51f42664417c27def87ce4f6e8e2051.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b10s04i5eoepv"
-path="res://.godot/imported/atkbar.png-b687a7ca49f6eff4b6fb4ef5bfb832a7.ctex"
+path="res://.godot/imported/atkbar.png-c2a8403406dfd69da770413d62a5aaeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Onebuttonbug/art/atkbar.png"
-dest_files=["res://.godot/imported/atkbar.png-b687a7ca49f6eff4b6fb4ef5bfb832a7.ctex"]
+source_file="res://art/atkbar.png"
+dest_files=["res://.godot/imported/atkbar.png-c2a8403406dfd69da770413d62a5aaeb.ctex"]
 
 [params]
 

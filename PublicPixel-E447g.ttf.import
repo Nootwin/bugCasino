@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://br11nsxm1m2s3"
-path="res://.godot/imported/PublicPixel-E447g.ttf-5531202501c0c77feebcbd4fbf5cc03f.fontdata"
+path="res://.godot/imported/PublicPixel-E447g.ttf-7e9b0631b95b999c7f912d01cf3b3b6f.fontdata"
 
 [deps]
 
-source_file="res://Onebuttonbug/PublicPixel-E447g.ttf"
-dest_files=["res://.godot/imported/PublicPixel-E447g.ttf-5531202501c0c77feebcbd4fbf5cc03f.fontdata"]
+source_file="res://PublicPixel-E447g.ttf"
+dest_files=["res://.godot/imported/PublicPixel-E447g.ttf-7e9b0631b95b999c7f912d01cf3b3b6f.fontdata"]
 
 [params]
 

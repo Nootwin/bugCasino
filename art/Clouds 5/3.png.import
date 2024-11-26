@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw1vatnopl7ex"
-path="res://.godot/imported/3.png-146cd8b55da212a339d80439d8fa91ca.ctex"
+path="res://.godot/imported/3.png-e16c18bd9350fec19a6098f11d3a8e83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Onebuttonbug/art/Clouds 5/3.png"
-dest_files=["res://.godot/imported/3.png-146cd8b55da212a339d80439d8fa91ca.ctex"]
+source_file="res://art/Clouds 5/3.png"
+dest_files=["res://.godot/imported/3.png-e16c18bd9350fec19a6098f11d3a8e83.ctex"]
 
 [params]
 

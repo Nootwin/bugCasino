@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfs3hub112mvp"
-path="res://.godot/imported/whitebg.png-c026f51e8ba853f7781451ad89fadd1f.ctex"
+path="res://.godot/imported/whitebg.png-451267dae22fa662718045414358bd22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Onebuttonbug/art/whitebg.png"
-dest_files=["res://.godot/imported/whitebg.png-c026f51e8ba853f7781451ad89fadd1f.ctex"]
+source_file="res://art/whitebg.png"
+dest_files=["res://.godot/imported/whitebg.png-451267dae22fa662718045414358bd22.ctex"]
 
 [params]
 
