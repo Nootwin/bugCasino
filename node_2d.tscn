@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=4 uid="uid://kqp5pv0k4rjl"]
+
+[ext_resource type="Script" path="res://sky.gd" id="1_4j7dj"]
+[ext_resource type="Texture2D" uid="uid://derr23v21cji4" path="res://Onebuttonbug/art/Clouds 5/1.png" id="1_cbshv"]
+[ext_resource type="Texture2D" uid="uid://bw1vatnopl7ex" path="res://Onebuttonbug/art/Clouds 5/3.png" id="2_oenfy"]
+[ext_resource type="Texture2D" uid="uid://bffgq1d2ct25n" path="res://Onebuttonbug/art/Clouds 5/4.png" id="3_pcqig"]
+[ext_resource type="Texture2D" uid="uid://x38kxexxv5j3" path="res://Onebuttonbug/art/Clouds 5/5.png" id="4_gshv5"]
+[ext_resource type="Texture2D" uid="uid://c81n78dtm7boj" path="res://Onebuttonbug/art/g.png" id="5_1gosc"]
+[ext_resource type="Texture2D" uid="uid://dwm6bu1weluj7" path="res://Onebuttonbug/art/worm.png" id="6_1aa6k"]
+[ext_resource type="Script" path="res://g.gd" id="6_l503q"]
+[ext_resource type="PackedScene" uid="uid://olg62q2vqpvd" path="res://Onebuttonbug/thinkingText.tscn" id="9_axybs"]
+[ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://Onebuttonbug/PublicPixel-E447g.ttf" id="10_4qie1"]
+[ext_resource type="Script" path="res://distanceTrackerPlus.gd" id="11_to2ys"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmkct"]
+texture = ExtResource("5_1gosc")
+texture_region_size = Vector2i(32, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5f812"]
+sources/0 = SubResource("TileSetAtlasSource_kmkct")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sky" type="Node2D" parent="."]
+scale = Vector2(4, 4)
+script = ExtResource("1_4j7dj")
+
+[node name="1" type="Sprite2D" parent="Sky"]
+position = Vector2(67, 128.75)
+scale = Vector2(0.232639, 0.794753)
+texture = ExtResource("1_cbshv")
+
+[node name="3" type="Sprite2D" parent="Sky"]
+position = Vector2(0, -68.5)
+texture = ExtResource("2_oenfy")
+centered = false
+
+[node name="3" type="Sprite2D" parent="Sky/3"]
+position = Vector2(576, 0)
+texture = ExtResource("2_oenfy")
+centered = false
+
+[node name="4" type="Sprite2D" parent="Sky"]
+texture = ExtResource("3_pcqig")
+centered = false
+
+[node name="4" type="Sprite2D" parent="Sky/4"]
+position = Vector2(576, 0)
+texture = ExtResource("3_pcqig")
+centered = false
+
+[node name="5" type="Sprite2D" parent="Sky"]
+position = Vector2(0, -68.5)
+texture = ExtResource("4_gshv5")
+centered = false
+
+[node name="5" type="Sprite2D" parent="Sky/5"]
+position = Vector2(576, 0)
+texture = ExtResource("4_gshv5")
+centered = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAA4AAAAAAAAAAAACAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_5f812")
+script = ExtResource("6_l503q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(156, 680)
+scale = Vector2(4, 4)
+texture = ExtResource("6_1aa6k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("9_axybs")]
+offset_right = 38.0
+texts = Array[String](["Miau"])
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_top = 813.0
+offset_right = 536.0
+offset_bottom = 920.0
+theme_override_fonts/normal_font = ExtResource("10_4qie1")
+text = "Distance Traveled: 0cm"
+script = ExtResource("11_to2ys")

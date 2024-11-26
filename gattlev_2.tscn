@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://wvpltopfxxm5"]
+
+[ext_resource type="Texture2D" uid="uid://dfs3hub112mvp" path="res://Onebuttonbug/art/whitebg.png" id="1_us7xt"]
+[ext_resource type="Texture2D" uid="uid://ceh3cjo2p8kf6" path="res://Onebuttonbug/art/multislots.png" id="1_wa75y"]
+
+[node name="Gattlev2" type="Node2D"]
+
+[node name="Whitebg" type="Sprite2D" parent="."]
+position = Vector2(270, 864)
+scale = Vector2(4, 4)
+texture = ExtResource("1_us7xt")
+
+[node name="Multislots" type="Sprite2D" parent="."]
+position = Vector2(270, 760)
+scale = Vector2(4, 4)
+texture = ExtResource("1_wa75y")
