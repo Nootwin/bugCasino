@@ -6,6 +6,8 @@ var holding = true
 
 var myTurn : bool = true
 
+@export var speedMulyPos : float = 1
+
 func init():
 	childorder = get_children()
 	childorder.shuffle()
@@ -30,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		for child in childorder:
 			if child.position.y > 40:
 				child.position.y = -20 * childorder.size() + 40
-			child.position.y += 0.4
+			child.position.y += 0.4 * speedMulyPos
 		
 		
 	pass

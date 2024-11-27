@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://wvpltopfxxm5"]
+[gd_scene load_steps=6 format=3 uid="uid://wvpltopfxxm5"]
 
 [ext_resource type="Texture2D" uid="uid://dfs3hub112mvp" path="res://art/whitebg.png" id="1_us7xt"]
 [ext_resource type="Texture2D" uid="uid://ceh3cjo2p8kf6" path="res://art/multislots.png" id="1_wa75y"]
 [ext_resource type="PackedScene" uid="uid://4mnswijhio7c" path="res://slot.tscn" id="2_lofo8"]
 [ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="3_liqnj"]
+[ext_resource type="Script" path="res://dealer_hand.gd" id="5_o20xr"]
 
 [node name="Gattlev2" type="Node2D"]
 
@@ -13,7 +14,15 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_us7xt")
 
 [node name="Slot" parent="." instance=ExtResource("2_lofo8")]
-position = Vector2(74, 844)
+position = Vector2(77, 844)
+
+[node name="Slot2" parent="." instance=ExtResource("2_lofo8")]
+position = Vector2(302, 844)
+speedMulyPos = 3.0
+
+[node name="Slot3" parent="." instance=ExtResource("2_lofo8")]
+position = Vector2(190, 843)
+speedMulyPos = 2.0
 
 [node name="Multislots" type="Sprite2D" parent="."]
 position = Vector2(270, 512)
@@ -28,3 +37,16 @@ offset_bottom = 684.0
 theme_override_fonts/normal_font = ExtResource("3_liqnj")
 theme_override_font_sizes/normal_font_size = 24
 text = "4.0"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 108.0
+offset_top = 639.0
+offset_right = 193.0
+offset_bottom = 679.0
+theme_override_fonts/normal_font = ExtResource("3_liqnj")
+theme_override_font_sizes/normal_font_size = 32
+text = "4"
+
+[node name="DealerHand" type="Node2D" parent="."]
+position = Vector2(266, 18)
+script = ExtResource("5_o20xr")

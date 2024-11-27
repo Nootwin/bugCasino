@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=4 uid="uid://bvcip7mfbq0gc"]
 
-[ext_resource type="Texture2D" uid="uid://dvoeg30k4yph4" path="res://Onebuttonbug/GRASS+.png" id="1_7x00r"]
+[ext_resource type="Texture2D" uid="uid://dvoeg30k4yph4" path="res://GRASS+.png" id="1_7x00r"]
 [ext_resource type="Script" path="res://player_spinner.gd" id="2_dxj0w"]
-[ext_resource type="Texture2D" uid="uid://dwm6bu1weluj7" path="res://Onebuttonbug/art/worm.png" id="3_golvm"]
-[ext_resource type="Texture2D" uid="uid://dddqcai2711pf" path="res://Onebuttonbug/art/bumblle.png" id="4_4tvf6"]
-[ext_resource type="Texture2D" uid="uid://cbvggr80pm6lg" path="res://Onebuttonbug/art/fireant.png" id="5_7t7ix"]
-[ext_resource type="Texture2D" uid="uid://bjnjgh3herqbl" path="res://Onebuttonbug/art/slots.png" id="6_23jvu"]
+[ext_resource type="Texture2D" uid="uid://dwm6bu1weluj7" path="res://art/worm.png" id="3_golvm"]
+[ext_resource type="Texture2D" uid="uid://dddqcai2711pf" path="res://art/bumblle.png" id="4_4tvf6"]
+[ext_resource type="Texture2D" uid="uid://cbvggr80pm6lg" path="res://art/fireant.png" id="5_7t7ix"]
+[ext_resource type="Texture2D" uid="uid://bjnjgh3herqbl" path="res://art/slots.png" id="6_23jvu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hlynk"]
 texture = ExtResource("1_7x00r")
