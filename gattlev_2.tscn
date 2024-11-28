@@ -48,5 +48,5 @@ theme_override_font_sizes/normal_font_size = 32
 text = "4"
 
 [node name="DealerHand" type="Node2D" parent="."]
-position = Vector2(266, 18)
+position = Vector2(266, 52)
 script = ExtResource("5_o20xr")

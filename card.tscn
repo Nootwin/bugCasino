@@ -2,12 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dcgl8jm6n7tdo" path="res://art/canvas.png" id="1_anqjw"]
 [ext_resource type="Script" path="res://card.gd" id="1_ra477"]
-[ext_resource type="Texture2D" uid="uid://crf4g4bhknrsc" path="res://art/cardExample.png" id="2_ythna"]
 [ext_resource type="Texture2D" uid="uid://dwm6bu1weluj7" path="res://art/worm.png" id="3_5w178"]
 [ext_resource type="Texture2D" uid="uid://dpqpexrw1xfm7" path="res://art/cardBack.png" id="4_q7jve"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5kajd"]
-atlas = ExtResource("2_ythna")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kiffo"]
+load_path = "res://.godot/imported/cardExample.png-e20976788efebf02850d2f7db5a45499.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04us8"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_kiffo")
 region = Rect2(0, 0, 20, 28)
 
 [node name="Card" type="Node2D"]
@@ -15,12 +18,11 @@ scale = Vector2(4, 4)
 script = ExtResource("1_ra477")
 
 [node name="canvas" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 1, 1)
 position = Vector2(-5, -9)
 texture = ExtResource("1_anqjw")
 
 [node name="CardF" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_5kajd")
+texture = SubResource("AtlasTexture_04us8")
 
 [node name="Animal" type="Sprite2D" parent="."]
 position = Vector2(0, 4)
