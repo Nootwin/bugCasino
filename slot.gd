@@ -1,10 +1,12 @@
 extends Node2D
 
 var childorder : Array[Node]
-var holdAmount : int
-var holding = true
+var holdAmount : float = 0
+var holding = false
+var speed = 1.6
 
-var myTurn : bool = true
+@export var myTurn : bool = false
+@export var pass_to : Node
 
 @export var speedMulyPos : float = 1
 
@@ -32,15 +34,36 @@ func _physics_process(delta: float) -> void:
 		for child in childorder:
 			if child.position.y > 160:
 				child.position.y = -80 * childorder.size() + 160
-			child.position.y += 1.6 * speedMulyPos
+			child.position.y += speed * speedMulyPos
 		
 		
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if (event.is_pressed()):
-		holding = true
-	elif (event.is_released()):
-		holdAmount = 0
-		holding = false
+	if (myTurn):
+		if (event is InputEventKey or event is InputEventMouseButton or event is InputEventScreenTouch):
+			if (event.is_pressed()):
+				holding = true
+			elif (event.is_released()):
+				print(holdAmount)
+				if (holding):
+					if (holdAmount < 1):
+						myTurn = false
+						await returnToOne()
+						if (pass_to != null):
+							pass_to.myTurn = true
+			
+				holdAmount = 0
+				holding = false
+	
+	
+func returnToOne():
+	var nearestNodePos : float = childorder[0].position.y
+	for n in range(1, childorder.size()):
+		if abs(childorder[n].position.y) < abs(nearestNodePos):
+			nearestNodePos = childorder[n].position.y
+	for child in childorder:
+		child.position.y -= nearestNodePos
+		
+	
 	

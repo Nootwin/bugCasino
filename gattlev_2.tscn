@@ -13,16 +13,19 @@ position = Vector2(270, 864)
 scale = Vector2(4, 4)
 texture = ExtResource("1_us7xt")
 
-[node name="Slot" parent="." instance=ExtResource("2_lofo8")]
+[node name="Slot" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("2_lofo8")]
 position = Vector2(77, 844)
+myTurn = true
+pass_to = NodePath("../Slot2")
 
-[node name="Slot2" parent="." instance=ExtResource("2_lofo8")]
-position = Vector2(302, 844)
-speedMulyPos = 3.0
+[node name="Slot2" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("2_lofo8")]
+position = Vector2(190, 843)
+pass_to = NodePath("../Slot3")
+speedMulyPos = 2.0
 
 [node name="Slot3" parent="." instance=ExtResource("2_lofo8")]
-position = Vector2(190, 843)
-speedMulyPos = 2.0
+position = Vector2(302, 844)
+speedMulyPos = 3.0
 
 [node name="Multislots" type="Sprite2D" parent="."]
 position = Vector2(270, 512)
