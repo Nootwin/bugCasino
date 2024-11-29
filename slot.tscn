@@ -1,17 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4mnswijhio7c"]
+[gd_scene load_steps=2 format=3 uid="uid://4mnswijhio7c"]
 
 [ext_resource type="Script" path="res://slot.gd" id="1_qn4gq"]
-[ext_resource type="PackedScene" uid="uid://b4gmdxl16gvfi" path="res://Ug.tscn" id="2_8euel"]
 
 [node name="Slot" type="Node2D"]
 position = Vector2(260, 383)
 script = ExtResource("1_qn4gq")
 metadata/_edit_group_ = true
-
-[node name="Node2D" parent="." instance=ExtResource("2_8euel")]
-
-[node name="Node2D2" parent="." instance=ExtResource("2_8euel")]
-
-[node name="Node2D3" parent="." instance=ExtResource("2_8euel")]
-
-[node name="Node2D4" parent="." instance=ExtResource("2_8euel")]

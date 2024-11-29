@@ -47,7 +47,7 @@ func _input(event: InputEvent) -> void:
 			elif (event.is_released()):
 				print(holdAmount)
 				if (holding):
-					if (holdAmount < 1):
+					if (holdAmount < 0.5):
 						myTurn = false
 						await returnToOne()
 						if (pass_to != null):
