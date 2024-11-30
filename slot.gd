@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		for child in childorder:
 			if child.position.y > 172:
 				child.position.y = -86 * childorder.size() + 172
-			child.position.y += speed * speedMulyPos
+			child.position.y += speed * (speedMulyPos + $"../PointsManager".speed)
 		
 		
 	pass

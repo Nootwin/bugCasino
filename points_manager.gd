@@ -6,12 +6,14 @@ var myTurn : bool = false
 @export var speed : float
 @export var points : float
 @export var mult : float
+@export var turns : int
 
 @export var healthText : RichTextLabel
 @export var scoreText : RichTextLabel
 @export var speedText : RichTextLabel
 @export var pointsText : RichTextLabel
 @export var multText : RichTextLabel
+@export var turnText : RichTextLabel
 
 @export var calcChain : Array[Node]
 
@@ -32,8 +34,13 @@ func startMyTurn():
 	calculateScore()
 	await damage()
 	$"../DealerHand".deal()
-	$"../Slot".startMyTurn()	
-	$"../Slot".myTurn = true
+	turns -= 1
+	if (turns < 1):
+		pass
+	turnText.text = str(turns)
+	$"../Node2D/Wheelpointer".startMyTurn()	
+	$"../Node2D/Wheelpointer".myTurn = true
+	
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,9 +62,12 @@ func calculateScore():
 	score = mult * points
 	scoreText.text = "[center]" + str(score)
 	
+func addSpeed(num : float):
+	speed += num
+	speedText.text = str(speed)
 func damage():
 
-	await get_tree().create_timer(0.8)
+	await get_tree().create_timer(1).timeout
 	var onetenth = score / 100
 	for i in 100:
 		score -= onetenth
@@ -67,6 +77,7 @@ func damage():
 		await get_tree().process_frame
 		
 	health -= score
+	health = floor(health)
 	score = 0
 	points = 0
 	mult = 1

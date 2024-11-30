@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wvpltopfxxm5"]
+[gd_scene load_steps=14 format=3 uid="uid://wvpltopfxxm5"]
 
 [ext_resource type="Texture2D" uid="uid://dfs3hub112mvp" path="res://art/whitebg.png" id="1_us7xt"]
 [ext_resource type="Texture2D" uid="uid://ceh3cjo2p8kf6" path="res://art/multislots.png" id="1_wa75y"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://3ov3lb1f6rnk" path="res://art/spotlight godot.png" id="8_13vln"]
 [ext_resource type="Texture2D" uid="uid://c0e3rioc1yl5r" path="res://art/wheeloffortune.png" id="11_vtw5s"]
 [ext_resource type="Texture2D" uid="uid://ca2ag4v2edih0" path="res://art/wheelpointer.png" id="12_rtx6w"]
+[ext_resource type="Script" path="res://wheelpointer.gd" id="13_5x5si"]
 
 [node name="Gattlev2" type="Node2D"]
 
@@ -80,16 +81,18 @@ texture = ExtResource("1_wa75y")
 position = Vector2(175, 48)
 script = ExtResource("5_o20xr")
 
-[node name="PointsManager" parent="." node_paths=PackedStringArray("healthText", "scoreText", "speedText", "pointsText", "multText", "calcChain") instance=ExtResource("7_nrb3f")]
+[node name="PointsManager" parent="." node_paths=PackedStringArray("healthText", "scoreText", "speedText", "pointsText", "multText", "turnText", "calcChain") instance=ExtResource("7_nrb3f")]
 position = Vector2(167, 638)
 health = 100.0
 speed = 1.0
 mult = 1.0
+turns = 4
 healthText = NodePath("../CanvasLayer/Health")
 scoreText = NodePath("../CanvasLayer/Score")
 speedText = NodePath("../CanvasLayer/Speed")
 pointsText = NodePath("../CanvasLayer/Points")
 multText = NodePath("../CanvasLayer/Multi")
+turnText = NodePath("../CanvasLayer/Turns")
 calcChain = [NodePath("../Slot"), NodePath("../Slot2"), NodePath("../Slot3"), NodePath("../multislot")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -178,13 +181,31 @@ bbcode_enabled = true
 text = "[right]100"
 scroll_active = false
 
+[node name="AttackValue" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 272.0
+offset_top = 64.0
+offset_right = 513.0
+offset_bottom = 140.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_liqnj")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[right]3.0"
+scroll_active = false
+
 [node name="Wheeloffortune" type="Sprite2D" parent="."]
 position = Vector2(296, 333)
-rotation = 3.14159
 scale = Vector2(4, 4)
 texture = ExtResource("11_vtw5s")
 
-[node name="Wheelpointer" type="Sprite2D" parent="."]
-position = Vector2(492, 333)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(296, 333)
+
+[node name="Wheelpointer" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, -20)
+rotation = 1.5708
 scale = Vector2(4, 4)
 texture = ExtResource("12_rtx6w")
+script = ExtResource("13_5x5si")
+attackValue = 1.5
