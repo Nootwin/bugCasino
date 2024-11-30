@@ -25,4 +25,10 @@ func _enter_tree() -> void:
 	$Animal.self_modulate = color
 	$canvas.self_modulate = color
 	
-	
+func pointValue():
+	if cardNum == 1:
+		return 11
+	elif cardNum > 10:
+		return 10
+	else:
+		return cardNum

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca0p54rg34yac"]
+[gd_scene load_steps=4 format=3 uid="uid://ca0p54rg34yac"]
 
+[ext_resource type="Script" path="res://multiplier.gd" id="1_ngyhd"]
 [ext_resource type="Texture2D" uid="uid://di48g0qxiuv7k" path="res://art/multiplyers.png" id="1_t7bju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtqh7"]
@@ -9,7 +10,7 @@ region = Rect2(0, 0, 16, 16)
 
 [node name="Multiplier" type="Node2D"]
 scale = Vector2(4, 4)
-metadata/Mult = 0.0
+script = ExtResource("1_ngyhd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_mtqh7")

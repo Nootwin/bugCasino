@@ -1,0 +1,77 @@
+extends Node2D
+
+var myTurn : bool = false
+@export var health :float
+@export var score : float
+@export var speed : float
+@export var points : float
+@export var mult : float
+
+@export var healthText : RichTextLabel
+@export var scoreText : RichTextLabel
+@export var speedText : RichTextLabel
+@export var pointsText : RichTextLabel
+@export var multText : RichTextLabel
+
+@export var calcChain : Array[Node]
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	speedText.text = str(speed)
+	healthText.text = "[right]" + str(health)
+	scoreText.text = "[center]"
+	pointsText.text = "0"
+	multText.text = "[right] 1.0"
+	pass # Replace with function body.
+
+func startMyTurn():
+	$"../CanvasModulate".visible = true
+	for link in calcChain:
+		await link.countPoints()
+	$"../CanvasModulate".visible = false
+	calculateScore()
+	await damage()
+	$"../DealerHand".deal()
+	$"../Slot".startMyTurn()	
+	$"../Slot".myTurn = true
+	pass
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+func mulMult(num : float):
+	mult *= num
+	multText.text = "[right]" + str(mult)	
+
+func addPoints(num : float):
+	points += num
+	pointsText.text = str(floor(points))
+	
+func addMult(num : float):
+	mult += num
+	multText.text = "[right]" + str(mult)	
+	
+func calculateScore():
+	score = mult * points
+	scoreText.text = "[center]" + str(score)
+	
+func damage():
+
+	await get_tree().create_timer(0.8)
+	var onetenth = score / 100
+	for i in 100:
+		score -= onetenth
+		health -= onetenth
+		healthText.text = "[right]" + str(health)
+		scoreText.text = "[center]" + str(score)
+		await get_tree().process_frame
+		
+	health -= score
+	score = 0
+	points = 0
+	mult = 1
+	healthText.text = "[right]" + str(health)
+	scoreText.text = "[center]"
+	pointsText.text = "0"
+	multText.text = "[right] 1.0"
+	

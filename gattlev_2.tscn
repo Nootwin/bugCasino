@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wvpltopfxxm5"]
+[gd_scene load_steps=13 format=3 uid="uid://wvpltopfxxm5"]
 
 [ext_resource type="Texture2D" uid="uid://dfs3hub112mvp" path="res://art/whitebg.png" id="1_us7xt"]
 [ext_resource type="Texture2D" uid="uid://ceh3cjo2p8kf6" path="res://art/multislots.png" id="1_wa75y"]
@@ -7,7 +7,11 @@
 [ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="3_liqnj"]
 [ext_resource type="PackedScene" uid="uid://dgqyhmhpt7dfp" path="res://multiplier slot.tscn" id="4_k6vau"]
 [ext_resource type="Script" path="res://dealer_hand.gd" id="5_o20xr"]
+[ext_resource type="PackedScene" uid="uid://kpqss228df6g" path="res://points_manager.tscn" id="7_nrb3f"]
+[ext_resource type="Script" path="res://spotlighter.gd" id="8_7wv2b"]
 [ext_resource type="Texture2D" uid="uid://3ov3lb1f6rnk" path="res://art/spotlight godot.png" id="8_13vln"]
+[ext_resource type="Texture2D" uid="uid://c0e3rioc1yl5r" path="res://art/wheeloffortune.png" id="11_vtw5s"]
+[ext_resource type="Texture2D" uid="uid://ca2ag4v2edih0" path="res://art/wheelpointer.png" id="12_rtx6w"]
 
 [node name="Gattlev2" type="Node2D"]
 
@@ -16,10 +20,12 @@ position = Vector2(270, 864)
 scale = Vector2(4, 4)
 texture = ExtResource("1_us7xt")
 
-[node name="Slot" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("2_lofo8")]
+[node name="Slot" parent="." node_paths=PackedStringArray("pass_to", "lookForPoints") instance=ExtResource("2_lofo8")]
 position = Vector2(76, 848)
 myTurn = true
 pass_to = NodePath("../Slot2")
+type = "BUG"
+lookForPoints = [NodePath("../Slot2"), NodePath("../Slot3"), NodePath("../DealerHand")]
 
 [node name="Node2D" parent="Slot" instance=ExtResource("3_dke6m")]
 
@@ -29,9 +35,11 @@ pass_to = NodePath("../Slot2")
 
 [node name="Node2D4" parent="Slot" instance=ExtResource("3_dke6m")]
 
-[node name="Slot2" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("2_lofo8")]
+[node name="Slot2" parent="." node_paths=PackedStringArray("pass_to", "lookForPoints") instance=ExtResource("2_lofo8")]
 position = Vector2(188, 848)
 pass_to = NodePath("../Slot3")
+type = "BUG"
+lookForPoints = [NodePath("../Slot3"), NodePath("../DealerHand")]
 speedMulyPos = 2.0
 
 [node name="Node2D" parent="Slot2" instance=ExtResource("3_dke6m")]
@@ -42,9 +50,11 @@ speedMulyPos = 2.0
 
 [node name="Node2D4" parent="Slot2" instance=ExtResource("3_dke6m")]
 
-[node name="Slot3" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("2_lofo8")]
+[node name="Slot3" parent="." node_paths=PackedStringArray("pass_to", "lookForPoints") instance=ExtResource("2_lofo8")]
 position = Vector2(300, 848)
 pass_to = NodePath("../multislot")
+type = "BUG"
+lookForPoints = [NodePath("../DealerHand")]
 speedMulyPos = 3.0
 
 [node name="Node2D" parent="Slot3" instance=ExtResource("3_dke6m")]
@@ -55,8 +65,10 @@ speedMulyPos = 3.0
 
 [node name="Node2D4" parent="Slot3" instance=ExtResource("3_dke6m")]
 
-[node name="multislot" parent="." instance=ExtResource("4_k6vau")]
+[node name="multislot" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("4_k6vau")]
 position = Vector2(468, 852)
+pass_to = NodePath("../PointsManager")
+type = "MUL"
 speedMulyPos = 3.0
 
 [node name="Multislots" type="Sprite2D" parent="."]
@@ -64,7 +76,50 @@ position = Vector2(270, 512)
 scale = Vector2(4, 4)
 texture = ExtResource("1_wa75y")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="DealerHand" type="Node2D" parent="."]
+position = Vector2(175, 48)
+script = ExtResource("5_o20xr")
+
+[node name="PointsManager" parent="." node_paths=PackedStringArray("healthText", "scoreText", "speedText", "pointsText", "multText", "calcChain") instance=ExtResource("7_nrb3f")]
+position = Vector2(167, 638)
+health = 100.0
+speed = 1.0
+mult = 1.0
+healthText = NodePath("../CanvasLayer/Health")
+scoreText = NodePath("../CanvasLayer/Score")
+speedText = NodePath("../CanvasLayer/Speed")
+pointsText = NodePath("../CanvasLayer/Points")
+multText = NodePath("../CanvasLayer/Multi")
+calcChain = [NodePath("../Slot"), NodePath("../Slot2"), NodePath("../Slot3"), NodePath("../multislot")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.60933, 0.60933, 0.60933, 1)
+script = ExtResource("8_7wv2b")
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasModulate"]
+position = Vector2(77, 849)
+texture = ExtResource("8_13vln")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasModulate"]
+position = Vector2(188, 848)
+texture = ExtResource("8_13vln")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasModulate/PointLight2D2"]
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = -37.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_liqnj")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "DEFAULT"
+scroll_active = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Speed" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 356.0
 offset_top = 644.0
 offset_right = 441.0
@@ -73,7 +128,7 @@ theme_override_fonts/normal_font = ExtResource("3_liqnj")
 theme_override_font_sizes/normal_font_size = 24
 text = "4.0"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="Turns" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 108.0
 offset_top = 639.0
 offset_right = 193.0
@@ -82,14 +137,54 @@ theme_override_fonts/normal_font = ExtResource("3_liqnj")
 theme_override_font_sizes/normal_font_size = 32
 text = "4"
 
-[node name="DealerHand" type="Node2D" parent="."]
-position = Vector2(266, 52)
-script = ExtResource("5_o20xr")
+[node name="Points" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 167.0
+offset_top = 636.0
+offset_right = 341.0
+offset_bottom = 663.0
+theme_override_fonts/normal_font = ExtResource("3_liqnj")
+theme_override_font_sizes/normal_font_size = 24
+text = "0"
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.60933, 0.60933, 0.60933, 1)
+[node name="Multi" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 167.0
+offset_top = 638.0
+offset_right = 341.0
+offset_bottom = 663.0
+theme_override_fonts/normal_font = ExtResource("3_liqnj")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[right]1.0"
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(77, 849)
-texture = ExtResource("8_13vln")
-texture_scale = 6.0
+[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 167.0
+offset_top = 571.0
+offset_right = 341.0
+offset_bottom = 608.0
+theme_override_fonts/normal_font = ExtResource("3_liqnj")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]"
+scroll_active = false
+
+[node name="Health" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 272.0
+offset_top = 24.0
+offset_right = 513.0
+offset_bottom = 100.0
+theme_override_fonts/normal_font = ExtResource("3_liqnj")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[right]100"
+scroll_active = false
+
+[node name="Wheeloffortune" type="Sprite2D" parent="."]
+position = Vector2(296, 333)
+rotation = 3.14159
+scale = Vector2(4, 4)
+texture = ExtResource("11_vtw5s")
+
+[node name="Wheelpointer" type="Sprite2D" parent="."]
+position = Vector2(492, 333)
+scale = Vector2(4, 4)
+texture = ExtResource("12_rtx6w")

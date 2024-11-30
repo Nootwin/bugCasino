@@ -1,4 +1,4 @@
-extends Node2D
+class_name DealerHand extends Node2D
 @onready var cardFile = preload("res://card.tscn")
 
 
@@ -8,6 +8,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func deal():
+	for child in get_children():
+		child.queue_free()
 	var card1 = cardFile.instantiate()
 	var card2 = cardFile.instantiate()
 	var card3 = cardFile.instantiate()
@@ -32,6 +34,8 @@ func deal():
 	
 	card1.get_node("CardE").visible = false
 	card2.get_node("CardE").visible = false
+	card3.get_node("CardE").visible = false
+	card4.get_node("CardE").visible = false
 	
 	
 	
