@@ -19,6 +19,7 @@ var myTurn : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	health = $"/root/Global".floor * 500
 	speedText.text = str(speed)
 	healthText.text = "[right]" + str(health)
 	scoreText.text = "[center]"
@@ -78,6 +79,9 @@ func damage():
 		
 	health -= score
 	health = floor(health)
+	if (health <= 0):
+		$"/root/Global".floor += 1
+		get_tree().change_scene_to_file("res://treecasino.tscn")
 	score = 0
 	points = 0
 	mult = 1

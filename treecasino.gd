@@ -24,3 +24,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _input(event: InputEvent) -> void:
+	if (event is InputEventKey or event is InputEventMouseButton or event is InputEventScreenTouch):
+		if (event.is_released()):
+			get_tree().change_scene_to_file("res://gattlev_2.tscn")

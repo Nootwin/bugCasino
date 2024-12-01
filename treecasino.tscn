@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://5itfgkc1r2v"]
+[gd_scene load_steps=11 format=4 uid="uid://5itfgkc1r2v"]
 
 [ext_resource type="Script" path="res://treecasino.gd" id="1_f38fj"]
 [ext_resource type="Texture2D" uid="uid://cjech4pexfcn3" path="res://art/starrynight.png" id="1_udqnh"]
 [ext_resource type="Texture2D" uid="uid://bba1ayh851ej4" path="res://art/treefloor.png" id="2_kvfuy"]
 [ext_resource type="Texture2D" uid="uid://c81n78dtm7boj" path="res://art/g.png" id="3_0gra6"]
 [ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="4_8atse"]
+[ext_resource type="Texture2D" uid="uid://bstt47c8wlkf1" path="res://art/startbutton.png" id="6_tyyf3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5samb"]
 texture = ExtResource("2_kvfuy")
@@ -130,3 +131,8 @@ text = "[center]6"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="Startbutton" type="Sprite2D" parent="Camera2D"]
+position = Vector2(274, 814)
+scale = Vector2(4, 4)
+texture = ExtResource("6_tyyf3")

@@ -29,13 +29,13 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if (myTurn):
 		if (event is InputEventKey or event is InputEventMouseButton or event is InputEventScreenTouch):
-			if (event.is_pressed()):
+			if (event.is_released()):
 					var stop = fposmod(get_parent().rotation_degrees, 360)
 					print("FJIEFJE", stop)
 					if ((stop >= 45 and stop <= 90) or (stop >= 225 and stop <= 270)):
 						myTurn = false
 						attack *= 0.8
-						$"../../CanvasLayer/AttackValue".text = "[right]" + str(attackValue)
+						$"../../CanvasLayer/AttackValue".text = "[right]" + str(attack)
 						await get_tree().create_timer(0.8).timeout
 						get_parent().rotation_degrees = 0
 						myTurn = true

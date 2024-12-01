@@ -14,6 +14,17 @@ var chosen : Node
 @export var speedMulyPos : float = 1
 
 func init():
+	if (type == "BUG"):
+		if (name == "Slot"):
+			for children in get_children():
+				remove_child(children)
+		
+		
+			for children in $"/root/Global".bugs:
+				if (children != null):
+					var child = children.duplicate(5)
+					child.setini(children.value, children.color, children.bugType)
+					add_child(child)
 	childorder = get_children()
 	childorder.shuffle()
 	var x = 86
@@ -21,7 +32,16 @@ func init():
 		child.position.y = x
 		x -= 86
 	
+	
 
+func change_children (array : Array[Node]):
+	for child in get_children():
+		remove_child(child)
+		
+	for children in array:
+		var child = children.duplicate(5)
+		child.setini(children.value, children.color, children.bugType)
+		add_child(child)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,6 +74,11 @@ func _input(event: InputEvent) -> void:
 						myTurn = false
 						await returnToOne()
 						if (pass_to != null):
+							if (pass_to is Slot and pass_to.type == "BUG"):
+								var newchildren = get_children()
+								newchildren.erase(chosen)
+								pass_to.change_children(newchildren)
+								pass_to.init()
 							pass_to.startMyTurn()
 							pass_to.myTurn = true
 			

@@ -5,7 +5,9 @@ var colors : Array[Color] = [Color("e81036"), Color("40f470"), Color("157bf4"), 
 
 var floor = 1
 
-var bugPNGS = {
+@export var bugs : Array[Bug]
+
+static var bugPNGS = {
 	BUG_TYPES.WORM : load("res://art/worm.png"),
 	BUG_TYPES.BEE : load("res://art/bumblle.png"),
 	BUG_TYPES.SPIDER : load("res://art/spider.png"),
@@ -17,6 +19,64 @@ var bugPNGS = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var bugFile = load("res://Ug.tscn")
+	var color = Color("e81036")
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.WORM)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.BEE)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.SPIDER)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.ANT)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.LADYBUG)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.DRAGONFLY)
+	
+	color = Color("40f470")
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.WORM)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.BEE)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.SPIDER)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.ANT)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.LADYBUG)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.DRAGONFLY)
+	
+	color = Color("157bf4")
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.WORM)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.BEE)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.SPIDER)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.ANT)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.LADYBUG)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.DRAGONFLY)
+	
+	color = Color("ffd559")
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.WORM)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.BEE)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.SPIDER)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.ANT)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.LADYBUG)
+	bugs.push_front(bugFile.instantiate())
+	bugs.front().setini(1, color, BUG_TYPES.DRAGONFLY)
+	
+	
 	pass # Replace with function body.
 
 

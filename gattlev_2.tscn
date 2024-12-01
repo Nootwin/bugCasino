@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://wvpltopfxxm5"]
+[gd_scene load_steps=13 format=3 uid="uid://wvpltopfxxm5"]
 
 [ext_resource type="Texture2D" uid="uid://dfs3hub112mvp" path="res://art/whitebg.png" id="1_us7xt"]
 [ext_resource type="Texture2D" uid="uid://ceh3cjo2p8kf6" path="res://art/multislots.png" id="1_wa75y"]
 [ext_resource type="PackedScene" uid="uid://4mnswijhio7c" path="res://slot.tscn" id="2_lofo8"]
-[ext_resource type="PackedScene" uid="uid://b4gmdxl16gvfi" path="res://Ug.tscn" id="3_dke6m"]
 [ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="3_liqnj"]
 [ext_resource type="PackedScene" uid="uid://dgqyhmhpt7dfp" path="res://multiplier slot.tscn" id="4_k6vau"]
 [ext_resource type="Script" path="res://dealer_hand.gd" id="5_o20xr"]
@@ -28,14 +27,6 @@ pass_to = NodePath("../Slot2")
 type = "BUG"
 lookForPoints = [NodePath("../Slot2"), NodePath("../Slot3"), NodePath("../DealerHand")]
 
-[node name="Node2D" parent="Slot" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D2" parent="Slot" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D3" parent="Slot" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D4" parent="Slot" instance=ExtResource("3_dke6m")]
-
 [node name="Slot2" parent="." node_paths=PackedStringArray("pass_to", "lookForPoints") instance=ExtResource("2_lofo8")]
 position = Vector2(188, 848)
 pass_to = NodePath("../Slot3")
@@ -43,28 +34,12 @@ type = "BUG"
 lookForPoints = [NodePath("../Slot3"), NodePath("../DealerHand")]
 speedMulyPos = 2.0
 
-[node name="Node2D" parent="Slot2" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D2" parent="Slot2" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D3" parent="Slot2" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D4" parent="Slot2" instance=ExtResource("3_dke6m")]
-
 [node name="Slot3" parent="." node_paths=PackedStringArray("pass_to", "lookForPoints") instance=ExtResource("2_lofo8")]
 position = Vector2(300, 848)
 pass_to = NodePath("../multislot")
 type = "BUG"
 lookForPoints = [NodePath("../DealerHand")]
 speedMulyPos = 3.0
-
-[node name="Node2D" parent="Slot3" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D2" parent="Slot3" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D3" parent="Slot3" instance=ExtResource("3_dke6m")]
-
-[node name="Node2D4" parent="Slot3" instance=ExtResource("3_dke6m")]
 
 [node name="multislot" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("4_k6vau")]
 position = Vector2(468, 852)

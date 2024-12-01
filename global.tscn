@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" path="res://global.gd" id="1_2p2og"]
 
-[node name="Global" type="Node2D"]
+[node name="Global" type="Node2D" node_paths=PackedStringArray("bugs")]
 script = ExtResource("1_2p2og")
+bugs = [null]

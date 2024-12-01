@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if (event is InputEventKey or event is InputEventMouseButton or event is InputEventScreenTouch and event.is_released()):
+	if ((event is InputEventKey or event is InputEventMouseButton or event is InputEventScreenTouch) and event.is_released()):
 		get_tree().change_scene_to_packed(next_scene)

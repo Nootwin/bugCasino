@@ -1,4 +1,4 @@
-extends Node2D
+class_name Bug extends Node2D
 
 var bugType : Globals.BUG_TYPES
 var color : Color
@@ -8,7 +8,6 @@ var value : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ini()
 	pass # Replace with function body.
 
 
@@ -21,7 +20,7 @@ func setini(valuen, colorn, bugTypen):
 		bugType = bugTypen
 		color = colorn
 		value = valuen
-		$Sprite2D.texture = $"/root/Global".bugPNGS[bugType]
+		$Sprite2D.texture = Globals.bugPNGS[bugType]
 		$Sprite2D.self_modulate = color
 		initd = true
 	
