@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://brrm0kdgx1vk7"]
+
+[ext_resource type="Script" path="res://tutorial_1.gd" id="1_e0k03"]
+[ext_resource type="Texture2D" uid="uid://dcgl8jm6n7tdo" path="res://art/canvas.png" id="2_p8qah"]
+[ext_resource type="Texture2D" uid="uid://dwm6bu1weluj7" path="res://art/worm.png" id="3_r4f1q"]
+[ext_resource type="PackedScene" uid="uid://olg62q2vqpvd" path="res://thinkingText.tscn" id="4_ls2bv"]
+
+[node name="Tutorial2" type="Node2D"]
+process_mode = 3
+process_priority = 1
+script = ExtResource("1_e0k03")
+stopPoint = 5
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.60933, 0.60933, 0.60933, 1)
+
+[node name="PointLight2D0" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(797, 616)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_p8qah")
+
+[node name="PointLight2D1" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(487, 88)
+scale = Vector2(27.3333, 14)
+texture = ExtResource("2_p8qah")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(290, 333.5)
+scale = Vector2(56.3333, 55.5)
+texture = ExtResource("2_p8qah")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(290, 333.5)
+scale = Vector2(56.3333, 55.5)
+texture = ExtResource("2_p8qah")
+
+[node name="PointLight2D4" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(290, 333.5)
+scale = Vector2(56.3333, 55.5)
+texture = ExtResource("2_p8qah")
+
+[node name="PointLight2D5" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(459, 574)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_p8qah")
+
+[node name="PointLight2D6" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(1155, 658)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_p8qah")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 570.0
+offset_bottom = 1072.0
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(128, 792)
+scale = Vector2(16, 16)
+texture = ExtResource("3_r4f1q")
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_ls2bv")]
+mouse_filter = 1
+texts = Array[String](["Now the House is going to try and stop you", "The house wants to increase your slot speed by this much", "you get to spin this wheel to try and lower the amount", "every successful hit on green lowers the amount but it gets harder everytime", "if you fail the wheel and your slot speed ever gets to fast, remember you can REST", "to REST hold down any button before spinning the slots, it will skip your turn but lower your slot speed to 1", "Thats all for now"])

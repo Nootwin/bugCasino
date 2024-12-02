@@ -15,7 +15,7 @@ var chosen : Node
 
 func init():
 	if (type == "BUG"):
-		if (name == "Slot"):
+		if (name == "Slot" or get_child_count() < 1):
 			for children in get_children():
 				remove_child(children)
 		
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		for child in childorder:
 			if child.position.y > 172:
 				child.position.y = -86 * childorder.size() + 172
-			child.position.y += speed * (speedMulyPos + $"../PointsManager".speed)
+			child.position.y += speed * (speedMulyPos + $"/root/Global".speed)
 		
 		
 	pass
@@ -81,7 +81,11 @@ func _input(event: InputEvent) -> void:
 								pass_to.init()
 							pass_to.startMyTurn()
 							pass_to.myTurn = true
-			
+					elif (name == "Slot"):
+						myTurn = false
+						$"../PointsManager".changeSpeed(1.0)
+						$"../PointsManager".sleepStartMyTurn()
+						$"../PointsManager".myTurn = true
 				holdAmount = 0
 				holding = false
 	
@@ -108,19 +112,35 @@ func countPoints():
 				if (pointsource.type == "BUG"):
 					if (chosen.bugType == pointsource.chosen.bugType):
 						manager.addMult(3)
+						$"../multSound".play()
+						$"../multSound".pitch_scale += 0.1
+						$"../Camera2D".applyShake()
 						await lights.spotlightIt(self.position, pointsource.position, "[center]Same Bug")
+						
 					if (chosen.color == pointsource.chosen.color):
 						manager.addMult(2)
+						$"../multSound".play()
+						$"../multSound".pitch_scale += 0.1
+						$"../Camera2D".applyShake()
 						await lights.spotlightIt(self.position, pointsource.position, "[center]Same Colour")
+						
 			elif (pointsource is DealerHand):
 				for card in pointsource.get_children():
 					
 					if (chosen.bugType == card.bug):
 						manager.addPoints(card.pointValue())
+						$"../multSound".play()
+						$"../multSound".pitch_scale += 0.1
+						$"../Camera2D".applyShake()
 						await lights.spotlightIt(self.position, card.global_position, "[center]Same Bug")
+						
 					if (chosen.color == card.color):
 						manager.addPoints(card.pointValue())
+						$"../multSound".play()
+						$"../multSound".pitch_scale += 0.1
+						$"../Camera2D".applyShake()
 						await lights.spotlightIt(self.position, card.global_position, "[center]Same Colour")
+						
 	else:
 		manager.mulMult(chosen.value)	
 			

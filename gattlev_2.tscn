@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wvpltopfxxm5"]
+[gd_scene load_steps=16 format=3 uid="uid://wvpltopfxxm5"]
 
 [ext_resource type="Texture2D" uid="uid://dfs3hub112mvp" path="res://art/whitebg.png" id="1_us7xt"]
 [ext_resource type="Texture2D" uid="uid://ceh3cjo2p8kf6" path="res://art/multislots.png" id="1_wa75y"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://c0e3rioc1yl5r" path="res://art/wheeloffortune.png" id="11_vtw5s"]
 [ext_resource type="Texture2D" uid="uid://ca2ag4v2edih0" path="res://art/wheelpointer.png" id="12_rtx6w"]
 [ext_resource type="Script" path="res://wheelpointer.gd" id="13_5x5si"]
+[ext_resource type="AudioStream" uid="uid://d0a7a1i8be6xn" path="res://art/pickupCoin (1).wav" id="13_7rvne"]
+[ext_resource type="Script" path="res://shakyCamera.gd" id="14_0ekmv"]
+[ext_resource type="PackedScene" uid="uid://ctspnd7pfbb8o" path="res://tutorial_1.tscn" id="15_d0ltk"]
 
 [node name="Gattlev2" type="Node2D"]
 
@@ -59,9 +62,7 @@ script = ExtResource("5_o20xr")
 [node name="PointsManager" parent="." node_paths=PackedStringArray("healthText", "scoreText", "speedText", "pointsText", "multText", "turnText", "calcChain") instance=ExtResource("7_nrb3f")]
 position = Vector2(167, 638)
 health = 100.0
-speed = 1.0
 mult = 1.0
-turns = 4
 healthText = NodePath("../CanvasLayer/Health")
 scoreText = NodePath("../CanvasLayer/Score")
 speedText = NodePath("../CanvasLayer/Speed")
@@ -178,9 +179,20 @@ texture = ExtResource("11_vtw5s")
 position = Vector2(296, 333)
 
 [node name="Wheelpointer" type="Sprite2D" parent="Node2D"]
+process_mode = 1
 position = Vector2(0, -20)
 rotation = 1.5708
 scale = Vector2(4, 4)
 texture = ExtResource("12_rtx6w")
 script = ExtResource("13_5x5si")
 attackValue = 1.5
+
+[node name="multSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_7rvne")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("14_0ekmv")
+shakeStrength = 10.0
+
+[node name="Tutorial1" parent="." instance=ExtResource("15_d0ltk")]

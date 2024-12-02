@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctspnd7pfbb8o"]
+
+[ext_resource type="Script" path="res://tutorial_1.gd" id="1_w48ci"]
+[ext_resource type="Texture2D" uid="uid://dcgl8jm6n7tdo" path="res://art/canvas.png" id="2_uukkh"]
+[ext_resource type="Texture2D" uid="uid://dwm6bu1weluj7" path="res://art/worm.png" id="3_uvl0a"]
+[ext_resource type="PackedScene" uid="uid://olg62q2vqpvd" path="res://thinkingText.tscn" id="4_hkjda"]
+
+[node name="Tutorial1" type="Node2D"]
+process_mode = 3
+process_priority = 1
+script = ExtResource("1_w48ci")
+stopPoint = 6
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.60933, 0.60933, 0.60933, 1)
+
+[node name="PointLight2D0" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(797, 616)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_uukkh")
+
+[node name="PointLight2D1" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(191, 848)
+scale = Vector2(61.6667, 18.6667)
+texture = ExtResource("2_uukkh")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(468, 850)
+scale = Vector2(18, 18.6667)
+texture = ExtResource("2_uukkh")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(180.5, 79)
+scale = Vector2(59.5, 25.3333)
+texture = ExtResource("2_uukkh")
+
+[node name="PointLight2D4" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(486.75, 45)
+scale = Vector2(27.4167, 14)
+texture = ExtResource("2_uukkh")
+
+[node name="PointLight2D5" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(446.063, 661)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_uukkh")
+
+[node name="PointLight2D6" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(100, 662)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_uukkh")
+
+[node name="PointLight2D7" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(797, 616)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_uukkh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 570.0
+offset_bottom = 1072.0
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(126, 488)
+scale = Vector2(16, 16)
+texture = ExtResource("3_uvl0a")
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_hkjda")]
+mouse_filter = 1
+texts = Array[String](["Hi, im Lemmy! Im here to teach you how to play.", "Down here is your Slots, Bugs of the same color or Type Up your Multiplyer", "Here are the dealers cards, if your slots share the same color or bug as these cards, you get the card's value in points times the bugs number", "This is the multiplyer slot, this multiplies your multiplier by the result", "This is this floors target points, try to hit this number before running out of turns", "The speed of your slots is multiplied by this number, this number follows you from floor to floor", "This is how many turns you have, you get a prize at the end of the floor for each turn left", "Good Luck"])

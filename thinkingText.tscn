@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://olg62q2vqpvd"]
 
-[ext_resource type="Script" path="res://Onebuttonbug/thinkingText.gd" id="1_vgo7i"]
-[ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://Onebuttonbug/PublicPixel-E447g.ttf" id="2_tbd3x"]
+[ext_resource type="Script" path="res://thinkingText.gd" id="1_vgo7i"]
+[ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="2_tbd3x"]
 
 [node name="Control" type="Control"]
 process_mode = 3
@@ -26,9 +26,11 @@ grow_vertical = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_right = 928.0
+offset_right = 540.0
 offset_bottom = 104.0
 theme_override_fonts/normal_font = ExtResource("2_tbd3x")
+scroll_active = false
+scroll_following = true
 
 [node name="Timer" type="Timer" parent="."]
 

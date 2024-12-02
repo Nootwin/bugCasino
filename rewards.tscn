@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwsiv6nabel0k"]
+[gd_scene load_steps=7 format=3 uid="uid://dwsiv6nabel0k"]
 
 [ext_resource type="Texture2D" uid="uid://bks4tsu1pxeq1" path="res://art/rewardBackDrop.png" id="1_fexne"]
 [ext_resource type="Texture2D" uid="uid://ismcnmbeiyvc" path="res://art/reward table.png" id="2_sagey"]
 [ext_resource type="Texture2D" uid="uid://dawbwhd4x8dgy" path="res://art/loottable.png" id="3_5eh0s"]
 [ext_resource type="Script" path="res://reward_spinner.gd" id="3_l8lpg"]
 [ext_resource type="Texture2D" uid="uid://ca2ag4v2edih0" path="res://art/wheelpointer.png" id="4_yht13"]
+[ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="6_osq33"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,6 +20,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_sagey")
 
 [node name="LootTable" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(272, 476)
 scale = Vector2(4, 4)
 texture = ExtResource("3_5eh0s")
@@ -32,3 +34,22 @@ script = ExtResource("3_l8lpg")
 [node name="Wheelpointer" type="Sprite2D" parent="Node2D"]
 position = Vector2(-5, 0)
 texture = ExtResource("4_yht13")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 80.0
+offset_top = 113.0
+offset_right = 464.0
+offset_bottom = 153.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Rewards Left"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 80.0
+offset_top = 153.0
+offset_right = 464.0
+offset_bottom = 193.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true

@@ -22,12 +22,15 @@ func setini(valuen, colorn, bugTypen):
 		value = valuen
 		$Sprite2D.texture = Globals.bugPNGS[bugType]
 		$Sprite2D.self_modulate = color
+		$RichTextLabel.text = str(value)
 		initd = true
 	
 func ini():
 	if (!initd):
 		bugType = randi_range(0, 5)
-		color = $"/root/Global".colors[randi_range(0, 3)]
-		$Sprite2D.texture = $"/root/Global".bugPNGS[bugType]
+		color = Globals.colors[randi_range(0, 3)]
+		$Sprite2D.texture = Globals.bugPNGS[bugType]
 		$Sprite2D.self_modulate = color
+		value = randi_range(1, floor(sqrt($"/root/Global".floor)) + 1)
 		initd = true
+		$RichTextLabel.text = str(value)

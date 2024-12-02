@@ -26,12 +26,11 @@ func _process(delta: float) -> void:
 		get_parent().rotation_degrees -= speed
 	pass
 	
-func _input(event: InputEvent) -> void:
-	if (myTurn):
+func _unhandled_input(event: InputEvent) -> void:
+	if (myTurn and get_tree().paused == false):
 		if (event is InputEventKey or event is InputEventMouseButton or event is InputEventScreenTouch):
-			if (event.is_released()):
+			if (event.is_released() and floor(rotation_degrees) != 90):
 					var stop = fposmod(get_parent().rotation_degrees, 360)
-					print("FJIEFJE", stop)
 					if ((stop >= 45 and stop <= 90) or (stop >= 225 and stop <= 270)):
 						myTurn = false
 						attack *= 0.8

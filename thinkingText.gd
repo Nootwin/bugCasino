@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton and event.is_pressed()):
+	if ((event is InputEventKey or event is InputEventScreenTouch or event is InputEventMouseButton) and event.is_released()):
 		text += 1
 		if (text < texts.size()):
 			timer.stop()
