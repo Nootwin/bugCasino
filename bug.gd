@@ -4,6 +4,7 @@ var bugType : Globals.BUG_TYPES
 var color : Color
 var initd : bool = false
 var value : int = 1
+var original : Bug
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,11 +16,22 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func setini(valuen, colorn, bugTypen):
+func setininew(valuen, colorn, bugTypen):
 	if (!initd):
 		bugType = bugTypen
 		color = colorn
 		value = valuen
+		$Sprite2D.texture = Globals.bugPNGS[bugType]
+		$Sprite2D.self_modulate = color
+		$RichTextLabel.text = str(value)
+		initd = true
+		
+func setini(valuen, colorn, bugTypen, originaln):
+	if (!initd):
+		bugType = bugTypen
+		color = colorn
+		value = valuen
+		original = originaln
 		$Sprite2D.texture = Globals.bugPNGS[bugType]
 		$Sprite2D.self_modulate = color
 		$RichTextLabel.text = str(value)

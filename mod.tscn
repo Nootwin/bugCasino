@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://i6pfix6nt2d7"]
+
+[ext_resource type="Script" path="res://mod.gd" id="2_qo28i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oclq5"]
+load_path = "res://.godot/imported/mods.png-6afd1367f28e4921502cd570b1226173.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u30cu"]
+atlas = SubResource("CompressedTexture2D_oclq5")
+region = Rect2(0, 0, 18, 18)
+
+[node name="mod" type="Sprite2D"]
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_u30cu")
+script = ExtResource("2_qo28i")

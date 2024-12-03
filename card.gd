@@ -19,9 +19,9 @@ func _process(delta: float) -> void:
 func _enter_tree() -> void:
 	cardNum = randi_range(1, 13)
 	$CardF.texture.region.position.x = (cardNum-1) * 20
-	bug = randi_range(0, 5)
-	$Animal.texture = $"/root/Global".bugPNGS[bug]
-	color = $"/root/Global".colors[randi_range(0, 3)]
+	bug = randi_range(0, get_parent().bugTypes.size()-1)
+	$Animal.texture = $"/root/Global".bugPNGS[get_parent().bugTypes[bug]]
+	color = get_parent().colors[randi_range(0, get_parent().colors.size()-1)]
 	$Animal.self_modulate = color
 	$canvas.self_modulate = color
 	

@@ -1,9 +1,17 @@
 class_name DealerHand extends Node2D
 @onready var cardFile = preload("res://card.tscn")
+var colors
+var bugTypes 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	colors = Globals.colors.duplicate()
+	colors.pop_back()
+	bugTypes = Globals.BUG_TYPES.values()
+	bugTypes.pop_back()
+	for mod in $"../Mods".get_children():
+		mod.on_first_dealt(self)
 	deal()
 	pass # Replace with function body.
 

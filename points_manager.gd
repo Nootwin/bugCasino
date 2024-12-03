@@ -20,6 +20,10 @@ var wheeledYet : bool = false
 func _ready() -> void:
 	$"/root/Global".turns = 4
 	health = $"/root/Global".floor * 500
+	for mod in $"../Mods".get_children():
+		mod.start_of_floor()
+	
+	turnText.text = str($"/root/Global".turns)
 	speedText.text = str($"/root/Global".speed)
 	healthText.text = "[right]" + str(health)
 	scoreText.text = "[center]"
@@ -34,6 +38,8 @@ func startMyTurn():
 	for link in calcChain:
 		await link.countPoints()
 	$"../CanvasModulate".visible = false
+	for mod in $"../Mods".get_children():
+		mod.post_calc()
 	calculateScore()
 	await damage()
 	if (health > 0):

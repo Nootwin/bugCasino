@@ -23,7 +23,7 @@ func init():
 			for children in $"/root/Global".bugs:
 				if (children != null):
 					var child = children.duplicate(5)
-					child.setini(children.value, children.color, children.bugType)
+					child.setini(children.value, children.color, children.bugType, children)
 					add_child(child)
 	childorder = get_children()
 	childorder.shuffle()
@@ -40,7 +40,7 @@ func change_children (array : Array[Node]):
 		
 	for children in array:
 		var child = children.duplicate(5)
-		child.setini(children.value, children.color, children.bugType)
+		child.setini(children.value, children.color, children.bugType, children.original)
 		add_child(child)
 
 # Called when the node enters the scene tree for the first time.
@@ -105,19 +105,18 @@ func countPoints():
 	var lights = $"../CanvasModulate"
 	
 	if (type == "BUG"):
-		manager.addPoints(chosen.value)
 	
 		for pointsource in lookForPoints:
 			if (pointsource is Slot):
 				if (pointsource.type == "BUG"):
-					if (chosen.bugType == pointsource.chosen.bugType):
+					if (chosen.bugType == pointsource.chosen.bugType || chosen.bugType == Globals.BUG_TYPES.CRICKET || pointsource.chosen.bugType == Globals.BUG_TYPES.CRICKET):
 						manager.addMult(3)
 						$"../multSound".play()
 						$"../multSound".pitch_scale += 0.1
 						$"../Camera2D".applyShake()
 						await lights.spotlightIt(self.position, pointsource.position, "[center]Same Bug")
 						
-					if (chosen.color == pointsource.chosen.color):
+					if (chosen.color == pointsource.chosen.color || chosen.color == Color("ffffff") || pointsource.chosen.color == Color("ffffff")):
 						manager.addMult(2)
 						$"../multSound".play()
 						$"../multSound".pitch_scale += 0.1
@@ -128,14 +127,14 @@ func countPoints():
 				for card in pointsource.get_children():
 					
 					if (chosen.bugType == card.bug):
-						manager.addPoints(card.pointValue())
+						manager.addPoints(card.pointValue() * chosen.value)
 						$"../multSound".play()
 						$"../multSound".pitch_scale += 0.1
 						$"../Camera2D".applyShake()
 						await lights.spotlightIt(self.position, card.global_position, "[center]Same Bug")
 						
 					if (chosen.color == card.color):
-						manager.addPoints(card.pointValue())
+						manager.addPoints(card.pointValue() * chosen.value)
 						$"../multSound".play()
 						$"../multSound".pitch_scale += 0.1
 						$"../Camera2D".applyShake()

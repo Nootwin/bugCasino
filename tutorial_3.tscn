@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://du8e4t517ld1"]
+
+[ext_resource type="Script" path="res://tutorial_1.gd" id="1_wjmtu"]
+[ext_resource type="Texture2D" uid="uid://dcgl8jm6n7tdo" path="res://art/canvas.png" id="2_w2i83"]
+[ext_resource type="Texture2D" uid="uid://dwm6bu1weluj7" path="res://art/worm.png" id="3_tjw57"]
+[ext_resource type="PackedScene" uid="uid://olg62q2vqpvd" path="res://thinkingText.tscn" id="4_aeb37"]
+
+[node name="Tutorial3" type="Node2D"]
+process_mode = 3
+process_priority = 1
+script = ExtResource("1_wjmtu")
+stopPoint = 9
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.60933, 0.60933, 0.60933, 1)
+
+[node name="PointLight2D0" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(797, 616)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D1" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(797, 616)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(797, 616)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(276, 473)
+scale = Vector2(67.6667, 71.3018)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D4" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(276, 473)
+scale = Vector2(67.6667, 71.3018)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D5" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(175.237, 362.41)
+scale = Vector2(33.5876, 37.53)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D6" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(376, 361)
+scale = Vector2(33.5876, 37.53)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D7" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(174, 574)
+scale = Vector2(33.5876, 37.53)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D8" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(378, 574)
+scale = Vector2(33.5876, 37.53)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D9" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(376, 574)
+scale = Vector2(33.5876, 37.53)
+texture = ExtResource("2_w2i83")
+
+[node name="PointLight2D10" type="PointLight2D" parent="CanvasModulate"]
+visible = false
+position = Vector2(797, 616)
+scale = Vector2(33.0208, 14)
+texture = ExtResource("2_w2i83")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 570.0
+offset_bottom = 1072.0
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(426, 792)
+scale = Vector2(16, 16)
+texture = ExtResource("3_tjw57")
+flip_h = true
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_aeb37")]
+mouse_filter = 1
+texts = Array[String](["One last thing", "After Every Floor, you get some rewards", "You get One reward for every turn you had left", "you need to spin the reward table to see which reward you get", "the speed of the reward table is based off your current spin speed", "The BUG reward lets you a new bug to your slots", "the CHANGE reward lets you apply a bug to 2 bugs of your \"choice\"", "the MOD reward lets you grab a permanent modifier that affect how you play the game, you can have 4 of these before they start replacing each other", "the PASS reward gives you the best reward of all...", "NOTHING!", "more is less yknow"])

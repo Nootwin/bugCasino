@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://5itfgkc1r2v"]
+[gd_scene load_steps=12 format=4 uid="uid://5itfgkc1r2v"]
 
 [ext_resource type="Script" path="res://treecasino.gd" id="1_f38fj"]
 [ext_resource type="Texture2D" uid="uid://cjech4pexfcn3" path="res://art/starrynight.png" id="1_udqnh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c81n78dtm7boj" path="res://art/g.png" id="3_0gra6"]
 [ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="4_8atse"]
 [ext_resource type="Texture2D" uid="uid://bstt47c8wlkf1" path="res://art/startbutton.png" id="6_tyyf3"]
+[ext_resource type="AudioStream" uid="uid://lxnascf2caou" path="res://art/crowd-talking-138493.wav" id="7_bnr3s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5samb"]
 texture = ExtResource("2_kvfuy")
@@ -136,3 +137,7 @@ anchor_mode = 0
 position = Vector2(274, 814)
 scale = Vector2(4, 4)
 texture = ExtResource("6_tyyf3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bnr3s")
+autoplay = true

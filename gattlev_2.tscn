@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wvpltopfxxm5"]
+[gd_scene load_steps=17 format=3 uid="uid://wvpltopfxxm5"]
 
 [ext_resource type="Texture2D" uid="uid://dfs3hub112mvp" path="res://art/whitebg.png" id="1_us7xt"]
 [ext_resource type="Texture2D" uid="uid://ceh3cjo2p8kf6" path="res://art/multislots.png" id="1_wa75y"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://d0a7a1i8be6xn" path="res://art/pickupCoin (1).wav" id="13_7rvne"]
 [ext_resource type="Script" path="res://shakyCamera.gd" id="14_0ekmv"]
 [ext_resource type="PackedScene" uid="uid://ctspnd7pfbb8o" path="res://tutorial_1.tscn" id="15_d0ltk"]
+[ext_resource type="Script" path="res://modsHolder.gd" id="16_6b2p5"]
 
 [node name="Gattlev2" type="Node2D"]
 
@@ -60,7 +61,7 @@ position = Vector2(175, 48)
 script = ExtResource("5_o20xr")
 
 [node name="PointsManager" parent="." node_paths=PackedStringArray("healthText", "scoreText", "speedText", "pointsText", "multText", "turnText", "calcChain") instance=ExtResource("7_nrb3f")]
-position = Vector2(167, 638)
+position = Vector2(170, 638)
 health = 100.0
 mult = 1.0
 healthText = NodePath("../CanvasLayer/Health")
@@ -196,3 +197,7 @@ script = ExtResource("14_0ekmv")
 shakeStrength = 10.0
 
 [node name="Tutorial1" parent="." instance=ExtResource("15_d0ltk")]
+
+[node name="Mods" type="Node2D" parent="."]
+position = Vector2(51, 572)
+script = ExtResource("16_6b2p5")

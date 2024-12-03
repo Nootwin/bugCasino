@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwsiv6nabel0k"]
+[gd_scene load_steps=17 format=3 uid="uid://dwsiv6nabel0k"]
 
 [ext_resource type="Texture2D" uid="uid://bks4tsu1pxeq1" path="res://art/rewardBackDrop.png" id="1_fexne"]
 [ext_resource type="Texture2D" uid="uid://ismcnmbeiyvc" path="res://art/reward table.png" id="2_sagey"]
@@ -6,8 +6,47 @@
 [ext_resource type="Script" path="res://reward_spinner.gd" id="3_l8lpg"]
 [ext_resource type="Texture2D" uid="uid://ca2ag4v2edih0" path="res://art/wheelpointer.png" id="4_yht13"]
 [ext_resource type="FontFile" uid="uid://br11nsxm1m2s3" path="res://PublicPixel-E447g.ttf" id="6_osq33"]
+[ext_resource type="PackedScene" uid="uid://du8e4t517ld1" path="res://tutorial_3.tscn" id="7_7devt"]
+[ext_resource type="PackedScene" uid="uid://4mnswijhio7c" path="res://slot.tscn" id="8_v8rco"]
+[ext_resource type="Texture2D" uid="uid://cqfl1kde5uah" path="res://art/mods.png" id="9_3icjd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5nee"]
+atlas = ExtResource("9_3icjd")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w2nri"]
+load_path = "res://.godot/imported/mods.png-6afd1367f28e4921502cd570b1226173.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl8iq"]
+atlas = SubResource("CompressedTexture2D_w2nri")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p8iuq"]
+load_path = "res://.godot/imported/mods.png-6afd1367f28e4921502cd570b1226173.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq85g"]
+atlas = SubResource("CompressedTexture2D_p8iuq")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_edqso"]
+load_path = "res://.godot/imported/mods.png-6afd1367f28e4921502cd570b1226173.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sql8s"]
+atlas = SubResource("CompressedTexture2D_edqso")
+region = Rect2(54, 0, 18, 18)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Slot" parent="." node_paths=PackedStringArray("pass_to") instance=ExtResource("8_v8rco")]
+visible = false
+position = Vector2(68, 872)
+pass_to = NodePath("../Slot2")
+type = "BUG"
+
+[node name="Slot2" parent="." instance=ExtResource("8_v8rco")]
+visible = false
+position = Vector2(155, 872)
+type = "BUG"
 
 [node name="RewardBackDrop" type="Sprite2D" parent="."]
 position = Vector2(270, 512)
@@ -53,3 +92,111 @@ offset_bottom = 193.0
 theme_override_fonts/normal_font = ExtResource("6_osq33")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
+
+[node name="Tutorial3" parent="." instance=ExtResource("7_7devt")]
+
+[node name="UpgradesText" type="Node2D" parent="."]
+position = Vector2(272, 476)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpgradesText"]
+offset_left = -257.0
+offset_top = -283.0
+offset_right = 4.0
+offset_bottom = -210.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+text = "Upgrade their Modifier by 1"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="UpgradesText"]
+offset_left = 5.0
+offset_top = -283.0
+offset_right = 268.0
+offset_bottom = -123.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+text = "Make 1 of them White (counts as every color, except by cards)"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="UpgradesText"]
+offset_left = 5.0
+offset_top = 193.0
+offset_right = 247.0
+offset_bottom = 315.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]Kill Both"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="UpgradesText"]
+offset_left = -257.0
+offset_top = 192.0
+offset_bottom = 314.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+text = "Make 1 of them a Cricket (counts as every Bug, except by cards)"
+
+[node name="ModText" type="Node2D" parent="."]
+visible = false
+
+[node name="1S" type="Sprite2D" parent="ModText"]
+position = Vector2(175, 389)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_d5nee")
+
+[node name="2S" type="Sprite2D" parent="ModText"]
+position = Vector2(369, 389)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_xl8iq")
+
+[node name="3S" type="Sprite2D" parent="ModText"]
+position = Vector2(369, 561)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_wq85g")
+
+[node name="4S" type="Sprite2D" parent="ModText"]
+position = Vector2(175, 561)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_sql8s")
+
+[node name="1T" type="RichTextLabel" parent="ModText"]
+offset_left = 15.0
+offset_top = 228.0
+offset_right = 130.0
+offset_bottom = 333.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+text = "EXAMPLE
+EXAMPLE
+EXAMPLE"
+
+[node name="2T" type="RichTextLabel" parent="ModText"]
+offset_left = 405.0
+offset_top = 228.0
+offset_right = 520.0
+offset_bottom = 333.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+text = "EXAMPLE
+EXAMPLE
+EXAMPLE"
+
+[node name="3T" type="RichTextLabel" parent="ModText"]
+offset_left = 405.0
+offset_top = 623.0
+offset_right = 520.0
+offset_bottom = 728.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+text = "EXAMPLE
+EXAMPLE
+EXAMPLE"
+
+[node name="4T" type="RichTextLabel" parent="ModText"]
+offset_left = 15.0
+offset_top = 623.0
+offset_right = 130.0
+offset_bottom = 728.0
+theme_override_fonts/normal_font = ExtResource("6_osq33")
+theme_override_font_sizes/normal_font_size = 16
+text = "EXAMPLE
+EXAMPLE
+EXAMPLE"
