@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (!stop_rotating):
-		rotation_degrees -= 1 * $"/root/Global".speed
+		rotation_degrees -= 2 * $"/root/Global".speed
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -125,6 +125,7 @@ func _input(event: InputEvent) -> void:
 					
 					$"/root/Global".mods.push_front(newmod)
 					$"../ModText".visible = false
+					$"../LootTable".visible = false
 					if ($"/root/Global".mods.size() > 4):
 						$"/root/Global".mods.pop_back()
 						

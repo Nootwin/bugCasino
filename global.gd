@@ -3,7 +3,7 @@ class_name Globals extends Node2D
 enum BUG_TYPES {WORM, BEE, SPIDER, ANT, LADYBUG, DRAGONFLY, CRICKET}
 static var colors : Array[Color] = [Color("e81036"), Color("40f470"), Color("157bf4"), Color("ffd559"), Color("ffffff")]
 
-var floor = 2
+var floor = 1
 var turns : int = 0
 var speed : float = 1.0
 
@@ -24,6 +24,10 @@ static var bugPNGS = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mods.push_front(load("res://mod.tscn").instantiate())
+	mods.push_front(load("res://mod.tscn").instantiate())
+	mods.push_front(load("res://mod.tscn").instantiate())
+	
 	var bugFile = load("res://Ug.tscn")
 	var color = Color("e81036")
 	bugs.push_front(bugFile.instantiate())

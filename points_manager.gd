@@ -19,7 +19,7 @@ var wheeledYet : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$"/root/Global".turns = 4
-	health = $"/root/Global".floor * 500
+	health = $"/root/Global".floor * 300
 	for mod in $"../Mods".get_children():
 		mod.start_of_floor()
 	

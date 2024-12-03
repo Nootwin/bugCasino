@@ -96,6 +96,7 @@ bbcode_enabled = true
 [node name="Tutorial3" parent="." instance=ExtResource("7_7devt")]
 
 [node name="UpgradesText" type="Node2D" parent="."]
+visible = false
 position = Vector2(272, 476)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UpgradesText"]

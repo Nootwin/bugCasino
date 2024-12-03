@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if (myTurn and get_tree().paused == false):
 		if (event is InputEventKey or event is InputEventMouseButton or event is InputEventScreenTouch):
-			if (event.is_released() and floor(rotation_degrees) != 90):
+			if (event.is_released() and floor(get_parent().rotation_degrees) < -1):
 					var stop = fposmod(get_parent().rotation_degrees, 360)
 					if ((stop >= 45 and stop <= 90) or (stop >= 225 and stop <= 270)):
 						myTurn = false
